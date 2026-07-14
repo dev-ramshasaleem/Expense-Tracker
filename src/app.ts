@@ -8,7 +8,6 @@ import { errorMiddleware } from "./middleware/error.middleware.js";
 import authRoutes from "./routes/auth.routes.js";
 import { authMiddleware } from "./middleware/auth.middleware.js";
 import userRoutes from "./routes/user.routes.js";
-import prisma from "./config/prisma.js";
 
 const app = express()
 
