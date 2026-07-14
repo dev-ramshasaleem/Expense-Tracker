@@ -3,14 +3,19 @@ import dotenv from "dotenv";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import expenseRoutes from "./routes/expense.routes";
-import { errorMiddleware } from "./middleware/error.middleware";
-import authRoutes from "./routes/auth.routes";
-import { authMiddleware } from "./middleware/auth.middleware";
-import userRoutes from "./routes/user.routes";
+import expenseRoutes from "./routes/expense.routes.js";
+import { errorMiddleware } from "./middleware/error.middleware.js";
+import authRoutes from "./routes/auth.routes.js";
+import { authMiddleware } from "./middleware/auth.middleware.js";
+import userRoutes from "./routes/user.routes.js";
 
 
 dotenv.config()
+console.log("DATABASE_URL loaded:", !!process.env.DATABASE_URL);
+console.log(
+  "DATABASE_URL starts with:",
+  process.env.DATABASE_URL?.substring(0, 30)
+);
 
 
 const app = express()
