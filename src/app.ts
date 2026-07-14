@@ -7,6 +7,7 @@ import expenseRoutes from "./routes/expense.routes";
 import { errorMiddleware } from "./middleware/error.middleware";
 import authRoutes from "./routes/auth.routes";
 import { authMiddleware } from "./middleware/auth.middleware";
+import userRoutes from "./routes/user.routes";
 
 
 dotenv.config()
@@ -19,6 +20,7 @@ app.use(cors())
 app.use(helmet())
 app.use(morgan("dev"))
 app.use("/api/auth", authRoutes) //public routes
+app.use("/api/users", userRoutes);
 app.use("/api/expenses", expenseRoutes, authMiddleware)  //protected routes
 app.use(errorMiddleware)  //error handling middleware
 
