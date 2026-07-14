@@ -21,7 +21,7 @@ app.use(helmet())
 app.use(morgan("dev"))
 app.use("/api/auth", authRoutes) //public routes
 app.use("/api/users", userRoutes);
-app.use("/api/expenses", expenseRoutes, authMiddleware)  //protected routes
+app.use("/api/expenses", authMiddleware, expenseRoutes);  //protected routes
 app.use(errorMiddleware)  //error handling middleware
 
 
