@@ -19,5 +19,5 @@ export const createExpenseSchema = z.object({
 
   date: z
     .string()
-    .datetime("Invalid date format"),
+    .date("Invalid date format"),
 });
