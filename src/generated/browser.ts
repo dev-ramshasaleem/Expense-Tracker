@@ -27,3 +27,8 @@ export type User = Prisma.UserModel
  * 
  */
 export type Expense = Prisma.ExpenseModel
+/**
+ * Model Income
+ * 
+ */
+export type Income = Prisma.IncomeModel

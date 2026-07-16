@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { createExpense, deleteExpense, getExpenseById, getExpenses, updateExpense } from "../controllers/expense.controller.js";
 import { authMiddleware } from "../middleware/auth.middleware.js";
-import { createExpenseSchema } from "../validators/expense.validator.js";
+import { createExpenseSchema } from "../validation/expense.validation.js";
 import { validate } from "../middleware/validate.middleware.js";
 
 const router = Router();

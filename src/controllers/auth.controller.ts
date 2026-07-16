@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import prisma from "../config/prisma.js";
-import { loginSchema, registerSchema } from "../validators/auth.validator.js";
+import { loginSchema, registerSchema } from "../validation/auth.validation.js";
 
 // Register
 export const register = async (req: Request, res: Response) => {
