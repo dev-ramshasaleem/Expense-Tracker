@@ -2,7 +2,7 @@ import SignIn from "@/src/components/signin";
 
 export default function LoginPage() {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-orange-400 via-purple-700 to-purple-900">
+    <section className="min-h-screen bg-gradient-to-br from-orange-300 to-purple-600">
       <div className="flex min-h-screen flex-col items-center justify-center px-6 py-10">
         <div className="w-full max-w-md rounded-3xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
           <SignIn />
