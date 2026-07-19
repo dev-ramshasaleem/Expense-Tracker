@@ -77,7 +77,7 @@ export default function SignIn() {
         <div className="flex flex-col gap-4">
           <Link href="/dashboard">
             <Button className="mt-2 h-12 w-full rounded-full bg-white text-lg font-semibold text-purple-800 hover:bg-purple-200">
-              Sign In
+              Log In
             </Button>
           </Link>
 
