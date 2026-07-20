@@ -16,11 +16,11 @@ export default function SignIn() {
   return (
     <>
       <CardHeader className="px-0 text-center">
-        <div className="relative ">
+        <div className="relative text-center">
           <CardTitle className="text-3xl font-bold text-white">
             Welcome Back{" "}
           </CardTitle>
-          <Sparkles className="absolute right-14  h-7 w-7 -translate-y-8 text-white/60" />
+          <Sparkles className="absolute right-14  h-7 w-7 -translate-y-8 text-white" />
         </div>
 
         <CardDescription className="text-white/80">

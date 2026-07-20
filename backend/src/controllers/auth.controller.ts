@@ -6,9 +6,11 @@ import { loginSchema, registerSchema } from "../validation/auth.validation.js";
 
 // Register
 export const register = async (req: Request, res: Response) => {
+  console.log("Register endpoint hit");
   try {
-    const { name, email, password } = req.body;
     const validatedData = registerSchema.parse(req.body);
+
+const { name, email, password } = validatedData;
 
     // Check if user already exists
     const existingUser = await prisma.user.findUnique({
@@ -53,8 +55,9 @@ export const register = async (req: Request, res: Response) => {
 // Login
 export const login = async (req: Request, res: Response) => {
   try {
-    const { email, password } = req.body;
     const validatedData = loginSchema.parse(req.body);
+
+const { email, password } = validatedData;
 
     const user = await prisma.user.findUnique({
       where: { email },
