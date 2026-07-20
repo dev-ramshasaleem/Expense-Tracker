@@ -14,7 +14,7 @@ import {
   RegisterSchema,
 } from "../lib/validations/register-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import api from "../lib/axios";
+import { api } from "../lib/axios";
 
 export default function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
@@ -28,11 +28,18 @@ export default function SignUp() {
   });
 
   const onSubmit = async (data: RegisterSchema) => {
-    await api.post("/register", {
-      name: data.name,
-      email: data.email,
-      password: data.password,
-    });
+    try {
+      const res = await api.post("/register", {
+        name: data.name,
+        email: data.email,
+        password: data.password,
+      });
+
+      console.log(res.data);
+    } catch (error: any) {
+      console.log("Status:", error.response?.status);
+      console.log("Response:", error.response?.data);
+    }
   };
 
   return (
