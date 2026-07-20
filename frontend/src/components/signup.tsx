@@ -15,8 +15,10 @@ import {
 } from "../lib/validations/register-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { api } from "../lib/axios";
+import { useRouter } from "next/navigation";
 
 export default function SignUp() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const {
@@ -36,6 +38,8 @@ export default function SignUp() {
       });
 
       console.log(res.data);
+
+      router.push("/login");
     } catch (error: any) {
       console.log("Status:", error.response?.status);
       console.log("Response:", error.response?.data);

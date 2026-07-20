@@ -8,10 +8,42 @@ import { Button } from "@/components/ui/button";
 import { CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useRouter } from "next/navigation";
+import { api } from "../lib/axios";
+import { LoginSchema } from "../lib/validations/login-schema";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function SignIn() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<LoginSchema>({
+    resolver: zodResolver(LoginSchema),
+  });
+  const onSubmit = async (data: LoginSchema) => {
+    try {
+      const res = await api.post("/login", {
+        email: data.email,
+        password: data.password,
+      });
+
+      console.log(res.data);
+
+      // Save JWT
+      localStorage.setItem("token", res.data.token);
+
+      // Redirect to dashboard
+      router.push("/dashboard");
+    } catch (error: any) {
+      console.log(error.response?.data);
+
+      alert(error.response?.data?.message || "Login failed");
+    }
+  };
 
   return (
     <>
@@ -28,7 +60,7 @@ export default function SignIn() {
         </CardDescription>
       </CardHeader>
 
-      <form className="mt-6 space-y-5">
+      <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-5">
         {/* Email */}
         <div className="space-y-2">
           <Label htmlFor="email" className="text-white">
@@ -39,8 +71,7 @@ export default function SignIn() {
             <Mail className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-white/60" />
 
             <Input
-              id="email"
-              type="email"
+              {...register("email")}
               placeholder="john@example.com"
               className="h-12 border-white/20 bg-white/10 pl-10 text-white placeholder:text-white/50 focus-visible:ring-purple-400"
             />
@@ -57,7 +88,7 @@ export default function SignIn() {
             <Lock className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-white/60" />
 
             <Input
-              id="password"
+              {...register("password")}
               type={showPassword ? "text" : "password"}
               placeholder="••••••••"
               className="h-12 border-white/20 bg-white/10 pl-10 pr-12 text-white placeholder:text-white/50 focus-visible:ring-purple-400"
@@ -75,11 +106,13 @@ export default function SignIn() {
 
         {/* Button */}
         <div className="flex flex-col gap-4">
-          <Link href="/dashboard">
-            <Button className="mt-2 h-12 w-full rounded-full bg-white text-lg font-semibold text-purple-800 hover:bg-purple-200">
-              Log In
-            </Button>
-          </Link>
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className="mt-2 h-12 w-full rounded-full bg-white text-lg font-semibold text-purple-800 hover:bg-purple-200"
+          >
+            {isSubmitting ? "Logging In..." : "Log In"}
+          </Button>
 
           <p className="text-center text text-white/80">
             Don't have an account?{" "}
