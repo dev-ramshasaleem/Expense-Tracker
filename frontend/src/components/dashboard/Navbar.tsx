@@ -1,7 +1,7 @@
 "use client";
 
 import MobileSidebar from "./MobileSidebar";
-import { Bell } from "lucide-react";
+import { LogOut } from "lucide-react";
 
 export default function Navbar() {
   return (
@@ -15,11 +15,10 @@ export default function Navbar() {
       </div>
 
       <div className="flex items-center gap-4">
-        <Bell className="h-5 w-5 text-white" />
-
         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-600 font-semibold text-white">
           R
         </div>
+        <LogOut className="h-5 w-5 text-white" />
       </div>
     </header>
   );
