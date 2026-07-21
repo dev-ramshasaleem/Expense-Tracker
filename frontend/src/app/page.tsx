@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Banknote } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -7,18 +8,19 @@ export default function Home() {
       <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-between px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
         {/* Hero */}
         <div className="flex flex-1 items-center justify-center">
-          <div className="text-center text-white">
+          <div className="text-center items-center  text-white flex flex-col ">
+            <Banknote className="h-20 w-20 text-white " />
             <h1 className="text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
               Welcome SpendO
             </h1>
 
-            <h2 className="mt-4 text-lg sm:text-xl md:text-2xl font-medium">
+            {/* <h2 className="mt-4 text-lg sm:text-xl md:text-2xl font-medium">
               Take Control of Your Finances, Effortlessly
-            </h2>
+            </h2> */}
 
-            <p className="mt-3 text-sm sm:text-base md:text-lg text-white/90">
+            <h2 className="mt-3 text-lg sm:text-xl md:text-2xl text-white/90 font-medium">
               Track Expenses, Make Smarter Decisions.
-            </p>
+            </h2>
           </div>
         </div>
 
