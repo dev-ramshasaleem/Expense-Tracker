@@ -1,10 +1,4 @@
-import {
-  Wallet,
-  TrendingUp,
-  TrendingDown,
-  PiggyBank,
-  WalletMinimal,
-} from "lucide-react";
+import { Wallet, TrendingUp, TrendingDown, WalletMinimal } from "lucide-react";
 
 import StatCard from "./StatCard";
 

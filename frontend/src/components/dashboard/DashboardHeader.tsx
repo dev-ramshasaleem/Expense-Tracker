@@ -35,7 +35,7 @@ export default function DashboardHeader() {
       </div>
 
       {/* Right */}
-      <Button className="h-12 w-full rounded-xl bg-cyan-500 px-6 text-white hover:bg-cyan-400 lg:w-auto">
+      <Button className="h-12 w-full rounded-xl bg-purple-600 px-6 text-white hover:bg-purple-400 lg:w-auto">
         <Plus className="mr-2 h-5 w-5" />
         Add Expense
       </Button>
