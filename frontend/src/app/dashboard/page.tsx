@@ -21,13 +21,22 @@ export default function DashboardPage() {
       try {
         const token = localStorage.getItem("token");
 
-        const res = await api.get("/transactions?limit=5", {
+        const res = await api.get("/expenses?limit=3", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
+        console.log("API response:", res.data);
 
-        setTransactions(res.data);
+        const formatted = res.data.expenses.map((expense: any) => ({
+          id: expense.id,
+          title: expense.title,
+          category: expense.category,
+          date: expense.date,
+          amount: expense.amount,
+          type: "expense",
+        }));
+        setTransactions(res.data.expenses);
       } catch (err) {
         console.error(err);
       }

@@ -35,6 +35,7 @@ interface RecentTransactionsProps {
 export default function RecentTransactions({
   transactions,
 }: RecentTransactionsProps) {
+  console.log("Transactions:", transactions);
   return (
     <Card className="rounded-3xl border shadow-sm border-white/10 bg-white/10">
       <CardHeader className="flex flex-row items-center justify-between">

@@ -24,18 +24,21 @@ export default function ExpenseForm() {
     try {
       const token = localStorage.getItem("token");
 
-      await api.post("/expenses", data, {
+      const response = await api.post("/expenses", data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
 
-      alert("Expense added successfully!");
+      console.log(response.data);
+
+      alert("Expense created successfully");
 
       router.push("/dashboard");
     } catch (error) {
-      console.error(error);
-      alert("Failed to add expense");
+      console.error("Create expense error:", error);
+
+      alert("Failed to create expense");
     }
 
     // We'll connect the backend next
