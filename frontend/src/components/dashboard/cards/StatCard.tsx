@@ -2,7 +2,7 @@ import { LucideIcon } from "lucide-react";
 
 interface StatCardProps {
   title: string;
-  value: string;
+  value: number;
   icon: LucideIcon;
   trend?: string;
   trendType?: "up" | "down";
@@ -21,7 +21,9 @@ export default function StatCard({
         <div>
           <p className="text text-black">{title}</p>
 
-          <h2 className="mt-2 text-3xl font-bold text-white">{value}</h2>
+          <h2 className="mt-2 text-3xl font-bold text-white">
+            Rs. {value.toLocaleString()}
+          </h2>
 
           {trend && (
             <p

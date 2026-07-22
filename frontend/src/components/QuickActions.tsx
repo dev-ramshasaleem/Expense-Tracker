@@ -8,13 +8,13 @@ const actions = [
   {
     title: "Add Expense",
     description: "Record a new expense",
-    href: "/dashboard/expenses/new",
+    href: "/dashboard/expenses",
     icon: PlusCircle,
   },
   {
     title: "Add Income",
     description: "Record your income",
-    href: "/dashboard/income/new",
+    href: "/dashboard/income",
     icon: Wallet,
   },
   {

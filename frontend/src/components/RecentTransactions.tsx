@@ -1,49 +1,40 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { UtensilsCrossed, Wallet, Car, Film, ArrowRight } from "lucide-react";
+
+import {
+  ArrowRight,
+  LucideIcon,
+  UtensilsCrossed,
+  Wallet,
+  Car,
+  Film,
+  CircleDollarSign,
+} from "lucide-react";
 import Link from "next/link";
 
-const transactions = [
-  {
-    id: 1,
-    title: "Grocery Store",
-    category: "Food",
-    date: "Today",
-    amount: -3250,
-    icon: UtensilsCrossed,
-    type: "expense",
-  },
-  //   {
-  //     id: 2,
-  //     title: "Monthly Salary",
-  //     category: "Income",
-  //     date: "Yesterday",
-  //     amount: 180000,
-  //     icon: Wallet,
-  //     type: "income",
-  //   },
-  {
-    id: 3,
-    title: "Netflix",
-    category: "Entertainment",
-    date: "20 Jul",
-    amount: -1100,
-    icon: Film,
-    type: "expense",
-  },
-  {
-    id: 4,
-    title: "inDrive",
-    category: "Transport",
-    date: "19 Jul",
-    amount: -850,
-    icon: Car,
-    type: "expense",
-  },
-];
+export interface Transaction {
+  id: string;
+  title: string;
+  category: string;
+  date: string;
+  amount: number;
+  type: "income" | "expense";
+}
+const categoryIcons: Record<string, LucideIcon> = {
+  Food: UtensilsCrossed,
+  Income: Wallet,
+  Transport: Car,
+  Entertainment: Film,
+};
 
-export default function RecentTransactions() {
+interface RecentTransactionsProps {
+  transactions: Transaction[];
+}
+
+export default function RecentTransactions({
+  transactions,
+}: RecentTransactionsProps) {
   return (
     <Card className="rounded-3xl border shadow-sm border-white/10 bg-white/10">
       <CardHeader className="flex flex-row items-center justify-between">
@@ -62,7 +53,7 @@ export default function RecentTransactions() {
 
       <CardContent className="space-y-2">
         {transactions.map((transaction) => {
-          const Icon = transaction.icon;
+          const Icon = categoryIcons[transaction.category] ?? CircleDollarSign;
 
           return (
             <div
@@ -83,7 +74,10 @@ export default function RecentTransactions() {
                     </span>
 
                     <span className="text-xs text-black">
-                      {transaction.date}
+                      {new Date(transaction.date).toLocaleDateString("en-GB", {
+                        day: "numeric",
+                        month: "short",
+                      })}
                     </span>
                   </div>
                 </div>

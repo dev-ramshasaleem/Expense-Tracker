@@ -1,37 +1,38 @@
 import { Wallet, TrendingUp, TrendingDown, WalletMinimal } from "lucide-react";
 
 import StatCard from "./StatCard";
+interface Stats {
+  totalBalance: number;
+  totalIncome: number;
+  totalExpense: number;
+  totalSavings: number;
+}
 
-export default function StatsGrid() {
+interface StatsGridProps {
+  stats: Stats;
+}
+export default function StatsGrid({ stats }: StatsGridProps) {
   return (
     <section className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
       <StatCard
         title="Total Balance"
-        value="$12,540"
+        value={stats.totalBalance}
         icon={Wallet}
-        trend="+12.5% this month"
       />
 
-      <StatCard
-        title="Income"
-        value="$18,200"
-        icon={TrendingUp}
-        trend="+8.4%"
-      />
+      <StatCard title="Income" value={stats.totalIncome} icon={TrendingUp} />
 
       <StatCard
         title="Expenses"
-        value="$5,660"
+        value={stats.totalExpense}
         icon={TrendingDown}
-        trend="-2.1%"
         trendType="down"
       />
 
       <StatCard
         title="Savings"
-        value="$6,880"
+        value={stats.totalSavings}
         icon={WalletMinimal}
-        trend="+18%"
       />
     </section>
   );
