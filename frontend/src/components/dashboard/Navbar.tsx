@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { LogOut } from "lucide-react";
 import MobileSidebar from "./MobileSidebar";
+import { useRouter } from "next/navigation";
 
 interface User {
   name: string;
@@ -19,10 +20,18 @@ export default function Navbar() {
 
     if (storedUser) {
       const parsedUser = JSON.parse(storedUser);
-      console.log("Parsed User:", parsedUser);
+
       setUser(parsedUser);
     }
   }, []);
+  const router = useRouter();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    router.push("/");
+  };
 
   const initial = user?.name?.charAt(0).toUpperCase() || "?";
 
@@ -40,8 +49,10 @@ export default function Navbar() {
         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-600 font-semibold text-white">
           {initial}
         </div>
-
-        <LogOut className="h-5 w-5 cursor-pointer text-white transition hover:text-red-400" />
+        <LogOut
+          onClick={handleLogout}
+          className="h-5 w-5 cursor-pointer text-white transition hover:text-red-400"
+        />
       </div>
     </header>
   );

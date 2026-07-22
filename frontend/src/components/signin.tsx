@@ -35,6 +35,7 @@ export default function SignIn() {
 
       // Save JWT
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(res.data.user));
 
       // Redirect to dashboard
       router.push("/dashboard");
