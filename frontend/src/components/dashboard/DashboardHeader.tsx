@@ -23,7 +23,7 @@ export default function DashboardHeader() {
     <section className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
       {/* Left */}
       <div>
-        <h1 className="text-3xl font-bold text-white md:text-4xl">
+        <h1 className="text-3xl font-bold text-white md:text-4xl ">
           {greeting}, {userName} ✨
           {/* <Sparkles className="absolute right-14  h-7 w-7 -translate-y-8 text-white" /> */}
         </h1>
@@ -35,10 +35,10 @@ export default function DashboardHeader() {
       </div>
 
       {/* Right */}
-      <Button className="h-12 w-full rounded-xl bg-purple-600 px-6 text-white hover:bg-purple-400 lg:w-auto">
+      {/* <Button className="h-12 w-full rounded-xl bg-purple-600 px-6 text-white hover:bg-purple-400 lg:w-auto">
         <Plus className="mr-2 h-5 w-5" />
         Add Expense
-      </Button>
+      </Button> */}
     </section>
   );
 }
