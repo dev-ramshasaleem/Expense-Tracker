@@ -21,22 +21,14 @@ export default function DashboardPage() {
       try {
         const token = localStorage.getItem("token");
 
-        const res = await api.get("/expenses?limit=3", {
+        const res = await api.get("/dashboard/recent-transactions", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
         console.log("API response:", res.data);
+        setTransactions(res.data.transactions);
 
-        const formatted = res.data.expenses.map((expense: any) => ({
-          id: expense.id,
-          title: expense.title,
-          category: expense.category,
-          date: expense.date,
-          amount: expense.amount,
-          type: "expense",
-        }));
-        setTransactions(formatted);
       } catch (err) {
         console.error(err);
       }
@@ -47,34 +39,33 @@ export default function DashboardPage() {
   try {
     const token = localStorage.getItem("token");
 
-    const res = await api.get("/dashboard", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-   console.log("Dashboard Response:", res.data);
-
+   const res = await api.get("/dashboard", {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+});
+console.log("Dashboard API Response:", res.data);
 
     setStats({
-      totalBalance: res.data.data.totalBalance,
-      totalIncome: res.data.data.totalIncome,
-      totalExpense: res.data.data.totalExpenses,
-      totalSavings:
-        res.data.data.totalIncome - res.data.data.totalExpenses,
-    });
+  totalBalance: res.data.data.totalBalance,
+  totalIncome: res.data.data.totalIncome,
+  totalExpense: res.data.data.totalExpenses,
+  totalSavings:
+    res.data.data.totalIncome - res.data.data.totalExpenses,
+});
   } catch (err) {
     console.error(err);
   }
-  fetchTransactions();
-fetchDashboardStats();
+  
 };
+fetchTransactions();
+fetchDashboardStats();
   }, []);
   return (
     <div className="space-y-2">
       <DashboardHeader />
      <StatsGrid stats={stats} />
-      <RecentTransactions transactions={transactions} />
-
+<RecentTransactions transactions={transactions} />
       <QuickActions />
     </div>
   );

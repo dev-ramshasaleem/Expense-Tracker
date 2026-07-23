@@ -12,6 +12,7 @@ if (!req.user) {
   });
 }
 
+
 const userId = req.user.id;
 
 const total = await prisma.expense.aggregate({
@@ -134,3 +135,65 @@ return res.status(200).json({
     });
   }
 }
+export const getRecentTransactions = async (
+  req: Request,
+  res: Response
+) => {
+  try {
+    if (!req.user) {
+      return res.status(401).json({
+        message: "Unauthorized",
+      });
+    }
+
+    const userId = req.user.id;
+
+    const expenses = await prisma.expense.findMany({
+      where: { userId },
+      orderBy: { date: "desc" },
+      take: 5,
+    });
+
+    const incomes = await prisma.income.findMany({
+      where: { userId },
+      orderBy: { date: "desc" },
+      take: 5,
+    });
+
+    const transactions = [
+      ...expenses.map((expense) => ({
+        id: expense.id,
+        title: expense.title,
+        category: expense.category,
+        amount: expense.amount,
+        date: expense.date,
+        type: "expense",
+      })),
+
+      ...incomes.map((income) => ({
+        id: income.id,
+        title: income.title,
+        category: income.source,
+        amount: income.amount,
+        date: income.date,
+        type: "income",
+      })),
+    ]
+      .sort(
+        (a, b) =>
+          new Date(b.date).getTime() - new Date(a.date).getTime()
+      )
+      .slice(0, 5);
+
+    return res.status(200).json({
+      success: true,
+      transactions,
+    });
+  } catch (error) {
+    console.error(error);
+
+    return res.status(500).json({
+      message: "Server error",
+    });
+  }
+};
