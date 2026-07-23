@@ -31,7 +31,7 @@ export default function SignUp() {
 
   const onSubmit = async (data: RegisterSchema) => {
     try {
-      const res = await api.post("/register", {
+      const res = await api.post("/auth/register", {
         name: data.name,
         email: data.email,
         password: data.password,

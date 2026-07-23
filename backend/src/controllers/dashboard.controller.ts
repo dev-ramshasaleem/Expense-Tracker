@@ -15,6 +15,15 @@ if (!req.user) {
 const userId = req.user.id;
 
 const total = await prisma.expense.aggregate({
+  
+  where: {
+    userId,
+  },
+  _sum: {
+    amount: true,
+  },
+});
+const totalIncome = await prisma.income.aggregate({
   where: {
     userId,
   },
@@ -98,17 +107,24 @@ const lastMonth = await prisma.expense.aggregate({
     amount: true,
   },
 });
+const income = totalIncome._sum.amount ?? 0;
+const expenses = total._sum.amount ?? 0;
+const balance = income - expenses;
 return res.status(200).json({
   success: true,
   data: {
-    totalExpenses: total._sum.amount ?? 0,
-    transactionCount,
-    highestExpense: highestExpense._max.amount ?? 0,
-    lowestExpense: lowestExpense._min.amount ?? 0,
-    averageExpense: averageExpense._avg.amount ?? 0,
-    thisMonthExpenses: thisMonth._sum.amount ?? 0,
-    lastMonthExpenses: lastMonth._sum.amount ?? 0,
-  },
+  totalBalance: balance,
+  totalIncome: income,
+  totalExpenses: expenses,
+
+  transactionCount,
+  highestExpense: highestExpense._max.amount ?? 0,
+  lowestExpense: lowestExpense._min.amount ?? 0,
+  averageExpense: averageExpense._avg.amount ?? 0,
+  thisMonthExpenses: thisMonth._sum.amount ?? 0,
+  lastMonthExpenses: lastMonth._sum.amount ?? 0,
+},
+    
 });
 }catch (error) {
     console.error(error);

@@ -36,18 +36,43 @@ export default function DashboardPage() {
           amount: expense.amount,
           type: "expense",
         }));
-        setTransactions(res.data.expenses);
+        setTransactions(formatted);
       } catch (err) {
         console.error(err);
       }
     };
 
-    fetchTransactions();
+   
+    const fetchDashboardStats = async () => {
+  try {
+    const token = localStorage.getItem("token");
+
+    const res = await api.get("/dashboard", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+   console.log("Dashboard Response:", res.data);
+
+
+    setStats({
+      totalBalance: res.data.data.totalBalance,
+      totalIncome: res.data.data.totalIncome,
+      totalExpense: res.data.data.totalExpenses,
+      totalSavings:
+        res.data.data.totalIncome - res.data.data.totalExpenses,
+    });
+  } catch (err) {
+    console.error(err);
+  }
+  fetchTransactions();
+fetchDashboardStats();
+};
   }, []);
   return (
     <div className="space-y-2">
       <DashboardHeader />
-      <StatsGrid stats={stats} />
+     <StatsGrid stats={stats} />
       <RecentTransactions transactions={transactions} />
 
       <QuickActions />

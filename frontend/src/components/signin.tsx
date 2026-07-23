@@ -26,7 +26,7 @@ export default function SignIn() {
   });
   const onSubmit = async (data: LoginSchema) => {
     try {
-      const res = await api.post("/login", {
+      const res = await api.post("/auth/login", {
         email: data.email,
         password: data.password,
       });
