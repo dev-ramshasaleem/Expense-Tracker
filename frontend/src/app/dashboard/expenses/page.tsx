@@ -6,7 +6,7 @@ export default function AddExpensePage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-white">Add Expense</h1>
         <p className="mt-2 text-white">
-          Record a new expense to keep track of your spending.
+          Record a new expense to keep track of your spendings.
         </p>
       </div>
 
