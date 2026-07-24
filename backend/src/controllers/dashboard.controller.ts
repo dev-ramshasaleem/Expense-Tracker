@@ -151,13 +151,13 @@ export const getRecentTransactions = async (
     const expenses = await prisma.expense.findMany({
       where: { userId },
       orderBy: { date: "desc" },
-      take: 5,
+      take: 3,
     });
 
     const incomes = await prisma.income.findMany({
       where: { userId },
       orderBy: { date: "desc" },
-      take: 5,
+      take: 3,
     });
 
     const transactions = [
@@ -183,7 +183,7 @@ export const getRecentTransactions = async (
         (a, b) =>
           new Date(b.date).getTime() - new Date(a.date).getTime()
       )
-      .slice(0, 5);
+      .slice(0, 3);
 
     return res.status(200).json({
       success: true,
