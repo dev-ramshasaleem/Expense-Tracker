@@ -73,7 +73,7 @@ export default function TransactionsPage() {
                 </div>
 
                 <div>
-                  <h3 className="font-medium text-white">
+                  <h3 className="font-medium text-black">
                     {transaction.title}
                   </h3>
 
@@ -82,7 +82,7 @@ export default function TransactionsPage() {
                       {transaction.category}
                     </span>
 
-                    <span className="text-xs text-gray-300">
+                    <span className="text-xs text-black">
                       {new Date(transaction.date).toLocaleDateString("en-GB", {
                         day: "numeric",
                         month: "short",
@@ -96,11 +96,11 @@ export default function TransactionsPage() {
               <p
                 className={`font-semibold ${
                   transaction.type === "income"
-                    ? "text-green-400"
-                    : "text-red-400"
+                    ? "text-purple-800"
+                    : "text-red-800"
                 }`}
               >
-                {transaction.type === "income" ? "+" : "-"} Rs{" "}
+                {transaction.type === "income" ? "+" : " - "} Rs{" "}
                 {transaction.amount.toLocaleString()}
               </p>
             </div>

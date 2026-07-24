@@ -7,9 +7,7 @@ export default function TransactionsPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold text-white">Transactions</h1>
-        <p className="text-gray-300">
-          View all your income and expense history.
-        </p>
+        <p className="text-white">View all your transactions history.</p>
       </div>
 
       <TransactionsList />

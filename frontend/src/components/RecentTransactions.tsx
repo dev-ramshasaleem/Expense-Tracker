@@ -87,8 +87,8 @@ export default function RecentTransactions({
               <p
                 className={`text-sm font-semibold ${
                   transaction.type === "income"
-                    ? "text-black-600"
-                    : "text-white"
+                    ? "text-purple-800"
+                    : "text-red-800"
                 }`}
               >
                 {transaction.type === "income" ? "+" : "-"}Rs{" "}
