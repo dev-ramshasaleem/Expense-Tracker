@@ -24,7 +24,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* CTA */}
         <div className="flex flex-col items-center gap-4 pb-4">
           <Link href="/register">
             <Button className="h-12 rounded-full bg-white px-10 text-base font-bold text-purple-800 shadow-xl hover:bg-purple-200 sm:h-14 sm:px-16 md:px-20">
