@@ -18,8 +18,8 @@ export const navItems = [
     icon: ReceiptText,
   },
   {
-    title: "Categories",
-    href: "/dashboard/categories",
+    title: "Transactions",
+    href: "/dashboard/transactions",
     icon: Tags,
   },
   {

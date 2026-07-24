@@ -10,6 +10,7 @@ import { authMiddleware } from "./middleware/auth.middleware.js";
 import userRoutes from "./routes/user.routes.js";
 import dashboardRoutes from "./routes/dashboard.routes.js";
 import incomeRoutes from "./routes/income.routes.js";
+import transactionRoutes from "./routes/transaction.routes.js";
 
 const app = express()
 
@@ -22,6 +23,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/expenses", authMiddleware, expenseRoutes);  //protected routes
 app.use("/api/income", authMiddleware, incomeRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/transactions", authMiddleware, transactionRoutes);
 app.use(errorMiddleware)  //error handling middleware
 
 
