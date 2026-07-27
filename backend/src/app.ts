@@ -21,7 +21,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://expense-tracker-coral-omega.vercel.app/",
+      "https://expense-tracker-coral-omega.vercel.app",
     ],
     credentials: true,
   })
