@@ -30,7 +30,17 @@ export default function ReportsPage() {
   const [report, setReport] = useState<ReportData | null>(null);
   const [loading, setLoading] = useState(true);
   const downloadReport = () => {
-    console.log("Download PDF");
+    if (!report) return;
+
+    const doc = new jsPDF();
+
+    doc.setFontSize(20);
+    doc.text("Spendo Financial Report", 20, 20);
+
+    doc.setFontSize(12);
+    doc.text(`Generated: ${new Date().toLocaleDateString()}`, 20, 30);
+
+    doc.save("Spendo_Report.pdf");
   };
 
   useEffect(() => {
