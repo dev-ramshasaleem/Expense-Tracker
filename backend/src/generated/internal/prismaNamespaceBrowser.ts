@@ -53,7 +53,8 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   User: 'User',
   Expense: 'Expense',
-  Income: 'Income'
+  Income: 'Income',
+  Budget: 'Budget'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -112,6 +113,17 @@ export const IncomeScalarFieldEnum = {
 } as const
 
 export type IncomeScalarFieldEnum = (typeof IncomeScalarFieldEnum)[keyof typeof IncomeScalarFieldEnum]
+
+
+export const BudgetScalarFieldEnum = {
+  id: 'id',
+  amount: 'amount',
+  month: 'month',
+  year: 'year',
+  userId: 'userId'
+} as const
+
+export type BudgetScalarFieldEnum = (typeof BudgetScalarFieldEnum)[keyof typeof BudgetScalarFieldEnum]
 
 
 export const SortOrder = {
