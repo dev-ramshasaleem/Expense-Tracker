@@ -238,7 +238,7 @@ GitHub:
 https://github.com/dev-ramshasaleem
 
 LinkedIn:
-https://www.linkedin.com/in/ramshasaleem/
+https://www.linkedin.com/in/ramsha-saleem-6aaa29199/
 
 ---
 
