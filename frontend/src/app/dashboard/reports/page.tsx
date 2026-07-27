@@ -1,5 +1,6 @@
 "use client";
-
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
 import { useEffect, useState } from "react";
 import { api } from "@/src/lib/axios";
 import SummaryCards from "@/src/components/reports/SummaryCards";
