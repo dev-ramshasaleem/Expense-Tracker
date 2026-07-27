@@ -34,11 +34,48 @@ export default function ReportsPage() {
 
     const doc = new jsPDF();
 
+    // Title
     doc.setFontSize(20);
-    doc.text("Spendo Financial Report", 20, 20);
+    doc.text("Spendo Financial Report", 14, 20);
 
-    doc.setFontSize(12);
-    doc.text(`Generated: ${new Date().toLocaleDateString()}`, 20, 30);
+    // Date
+    doc.setFontSize(11);
+    doc.text(`Generated: ${new Date().toLocaleDateString()}`, 14, 30);
+
+    // Summary
+    autoTable(doc, {
+      startY: 40,
+      head: [["Summary", "Amount"]],
+      body: [
+        ["Total Income", `Rs ${report.summary.totalIncome.toLocaleString()}`],
+        [
+          "Total Expenses",
+          `Rs ${report.summary.totalExpense.toLocaleString()}`,
+        ],
+        ["Net Savings", `Rs ${report.summary.savings.toLocaleString()}`],
+      ],
+    });
+
+    // Category Breakdown
+    autoTable(doc, {
+      startY: (doc as any).lastAutoTable.finalY + 10,
+      head: [["Category", "Amount"]],
+      body: report.categoryBreakdown.map((item) => [
+        item.category,
+        `Rs ${(item._sum.amount ?? 0).toLocaleString()}`,
+      ]),
+    });
+
+    // Insights
+    autoTable(doc, {
+      startY: (doc as any).lastAutoTable.finalY + 10,
+      head: [["Insights", "Value"]],
+      body: [
+        ["Highest Category", report.highestCategory],
+        ["Total Transactions", report.totalTransactions.toString()],
+        ["Average Expense", `Rs ${report.averageExpense.toFixed(2)}`],
+      ],
+    });
 
     doc.save("Spendo_Report.pdf");
   };
