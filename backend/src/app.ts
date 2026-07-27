@@ -12,6 +12,7 @@ import dashboardRoutes from "./routes/dashboard.routes.js";
 import incomeRoutes from "./routes/income.routes.js";
 import transactionRoutes from "./routes/transaction.routes.js";
 import budgetRoutes from "./routes/budget.routes.js";
+import reportRoutes from "./routes/report.routes.js"
 
 const app = express()
 
@@ -27,6 +28,7 @@ app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/transactions", authMiddleware, transactionRoutes);
 app.use(errorMiddleware)  //error handling middleware
 app.use("/api/budgets", budgetRoutes);
+app.use("/api/reports", reportRoutes);
 
 
 

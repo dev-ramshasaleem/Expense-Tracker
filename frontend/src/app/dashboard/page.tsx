@@ -2,7 +2,7 @@
 import QuickActions from "@/src/components/QuickActions";
 import RecentTransactions, {
   Transaction,
-} from "@/src/components/RecentTransactions";
+} from "@/src/components/transactions/RecentTransactions";
 import DashboardHeader from "@/src/components/dashboard/DashboardHeader";
 import StatsGrid from "@/src/components/dashboard/cards/StatsGrid";
 import { api } from "@/src/lib/axios";
@@ -28,44 +28,40 @@ export default function DashboardPage() {
         });
         console.log("API response:", res.data);
         setTransactions(res.data.transactions);
-
       } catch (err) {
         console.error(err);
       }
     };
 
-   
     const fetchDashboardStats = async () => {
-  try {
-    const token = localStorage.getItem("token");
+      try {
+        const token = localStorage.getItem("token");
 
-   const res = await api.get("/dashboard", {
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-});
-console.log("Dashboard API Response:", res.data);
+        const res = await api.get("/dashboard", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        console.log("Dashboard API Response:", res.data);
 
-    setStats({
-  totalBalance: res.data.data.totalBalance,
-  totalIncome: res.data.data.totalIncome,
-  totalExpense: res.data.data.totalExpenses,
-  totalSavings:
-    res.data.data.totalIncome - res.data.data.totalExpenses,
-});
-  } catch (err) {
-    console.error(err);
-  }
-  
-};
-fetchTransactions();
-fetchDashboardStats();
+        setStats({
+          totalBalance: res.data.data.totalBalance,
+          totalIncome: res.data.data.totalIncome,
+          totalExpense: res.data.data.totalExpenses,
+          totalSavings: res.data.data.totalIncome - res.data.data.totalExpenses,
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchTransactions();
+    fetchDashboardStats();
   }, []);
   return (
     <div className="space-y-2">
       <DashboardHeader />
-     <StatsGrid stats={stats} />
-<RecentTransactions transactions={transactions} />
+      <StatsGrid stats={stats} />
+      <RecentTransactions transactions={transactions} />
       <QuickActions />
     </div>
   );
