@@ -20,13 +20,27 @@ export const createBudget = async (
         year,
       },
     });
+    console.log(req.user);
+console.log(req.body);
 
     if (existingBudget) {
-      res.status(400).json({
-        message: "Budget already exists for this month.",
-      });
-      return;
-    }
+  const updatedBudget = await prisma.budget.update({
+    where: {
+      id: existingBudget.id,
+    },
+    data: {
+      amount,
+    },
+  });
+
+  res.status(200).json({
+    success: true,
+    budget: updatedBudget,
+    message: "Budget updated successfully.",
+  });
+
+  return;
+}
 
     const budget = await prisma.budget.create({
       data: {
@@ -35,6 +49,7 @@ export const createBudget = async (
         year,
         userId: req.user.id,
       },
+      
     });
 
     res.status(201).json({
