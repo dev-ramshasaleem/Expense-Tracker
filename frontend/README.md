@@ -1,36 +1,247 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💰 Spendo – Expense Tracker (Frontend)
 
-## Getting Started
+Spendo is a modern and responsive expense tracking application built with **Next.js** and **TypeScript**. It helps users manage their personal finances through an intuitive dashboard, allowing them to track income, expenses, budgets, and financial reports.
 
-First, run the development server:
+---
+
+## ✨ Features
+
+### 🔐 Authentication
+
+* User Login
+* User Registration
+* Protected Routes
+* JWT-based Authentication
+
+### 📊 Dashboard
+
+* Total Balance
+* Total Income
+* Total Expenses
+* Total Savings
+* Recent Transactions
+* Quick Action Cards
+
+### 💸 Expense Management
+
+* Add New Expense
+* View All Expenses
+* Expense Categories
+* Transaction History
+
+### 💰 Income Management
+
+* Add Income
+* View Income History
+
+### 🎯 Budget Management
+
+* Set Monthly Budget
+* View Budget Summary
+* Remaining Budget Calculation
+* Budget Progress Tracking
+
+### 📈 Reports
+
+* Financial Summary
+* Expense Breakdown by Category
+* Spending Insights
+* Download Reports as PDF
+
+
+---
+
+# 🛠 Tech Stack
+
+* Next.js
+* TypeScript
+* Tailwind CSS
+* shadcn/ui
+* Axios
+* Lucide React
+* next-themes
+* jsPDF
+* jspdf-autotable
+
+---
+
+# 📂 Folder Structure
+
+```text
+src/
+├── app/
+│   ├── dashboard/
+│   ├── login/
+│   ├── register/
+│   
+│
+├── components/
+│   ├── dashboard/
+│   ├── expenses/
+│   ├── income/
+│   ├── budget/
+│   ├── reports/
+│   └── ui/
+│
+├── lib/
+│   └── axios.ts
+│
+├── hooks/
+│
+├── utils/
+│
+└── types/
+```
+
+---
+
+# 🚀 Getting Started
+
+## Clone the Repository
+
+```bash
+git clone https://github.com/dev-ramshasaleem/Expense-Tracker.git
+```
+
+Move into the frontend directory:
+
+```bash
+cd Expense-Tracker
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open your browser:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+# ⚙️ Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+Create a `.env.local` file in the project root.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3001/api
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+# 📄 Available Pages
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Route                 | Description        |
+| --------------------- | ------------------ |
+| `/login`              | User Login         |
+| `/register`           | User Registration  |
+| `/dashboard`          | Dashboard Overview |
+| `/dashboard/expenses` | Expense Management |
+| `/dashboard/income`   | Income Management  |
+| `/dashboard/budget`   | Budget Management  |
+| `/dashboard/reports`  | Financial Reports  |
+| `/dashboard/settings` | User Settings      |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+# 📊 Dashboard Overview
+
+The dashboard provides a quick overview of the user's financial status, including:
+
+* Current Balance
+* Total Income
+* Total Expenses
+* Total Savings
+* Recent Transactions
+* Quick Actions
+
+---
+
+# 📄 PDF Reports
+
+Users can generate and download professional PDF reports containing:
+
+* Financial Summary
+* Expense Breakdown
+* Spending Insights
+* Report Generation Date
+
+---
+
+# 🎨 UI Design
+
+The application features:
+
+* Responsive Layout
+* Glassmorphism Cards
+* Modern Dashboard Interface
+* Dark & Light Theme Support
+* Mobile-Friendly Design
+* Clean Typography
+* Reusable UI Components
+
+---
+
+# 🔗 Backend
+
+This frontend communicates with the Express.js backend through REST APIs.
+
+The API base URL is configured using:
+
+```env
+NEXT_PUBLIC_API_URL
+```
+
+---
+
+# 📸 Screenshots
+
+Add screenshots of:
+
+* Login
+* Dashboard
+* Expenses
+* Income
+* Budget
+* Reports
+* Settings
+
+---
+
+# 🚀 Future Improvements
+
+* Interactive Charts
+* CSV Export
+* Advanced Search & Filters
+* Recurring Transactions
+* Multi-Currency Support
+* Notifications
+* Profile Picture Upload
+
+---
+
+# 👩‍💻 Author
+
+**Ramsha Saleem**
+
+GitHub:
+https://github.com/dev-ramshasaleem
+
+LinkedIn:
+https://www.linkedin.com/in/ramshasaleem/
+
+---
+
+## ⭐ Support
+
+If you found this project helpful, consider giving it a ⭐ on GitHub.
