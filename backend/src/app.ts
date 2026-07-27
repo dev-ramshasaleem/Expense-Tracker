@@ -34,9 +34,10 @@ app.use("/api/expenses", authMiddleware, expenseRoutes);  //protected routes
 app.use("/api/income", authMiddleware, incomeRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/transactions", authMiddleware, transactionRoutes);
-app.use(errorMiddleware)  //error handling middleware
 app.use("/api/budgets", budgetRoutes);
 app.use("/api/reports", reportRoutes);
+app.use(errorMiddleware)  //error handling middleware
+
 
 
 
