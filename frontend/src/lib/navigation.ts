@@ -27,9 +27,5 @@ export const navItems = [
     href: "/dashboard/reports",
     icon: ChartColumn,
   },
-  {
-    title: "Settings",
-    href: "/dashboard/settings",
-    icon: Settings,
-  },
+  
 ];
