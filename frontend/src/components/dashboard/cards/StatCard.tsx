@@ -36,8 +36,8 @@ export default function StatCard({
           )}
         </div>
 
-        <div className="rounded-xl bg-blue-500/20 p-3">
-          <Icon className="h-6 w-6  bg-purple-300 text-black" />
+        <div className="rounded-xl bg-purple-300 p-3">
+          <Icon className="h-6 w-6  text-black rounded-full bg-purple-300" />
         </div>
       </div>
     </div>

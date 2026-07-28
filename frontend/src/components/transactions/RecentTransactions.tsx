@@ -44,7 +44,7 @@ export default function RecentTransactions({
         </CardTitle>
 
         <Link
-          href="/transactions"
+          href="/dashboard/transactions"
           className="flex items-center gap-1 text-sm font-medium text-purple-800 hover:text-purple-700"
         >
           View All

@@ -7,14 +7,15 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 import SidebarItem from "./SidebarItem";
 import { navItems } from "@/src/lib/navigation";
+import { Button } from "@/components/ui/button";
 
 export default function MobileSidebar() {
   return (
     <Sheet>
       <SheetTrigger >
-        <button className="rounded-xl p-2 transition hover:bg-white/10 lg:hidden">
+        <Button className="rounded-xl p-2 transition hover:bg-white/10 lg:hidden">
           <Menu className="h-6 w-6 text-white" />
-        </button>
+        </Button>
       </SheetTrigger>
 
       <SheetContent
