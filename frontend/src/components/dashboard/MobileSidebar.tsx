@@ -14,7 +14,7 @@ export default function MobileSidebar() {
     <Sheet>
       <SheetTrigger >
         <Button className="rounded-xl p-2 transition hover:bg-white/10 lg:hidden">
-          <Menu className="h-6 w-6 text-white" />
+          <Menu className="h-6 w-6 text-white  bg-purple-600" />
         </Button>
       </SheetTrigger>
 
@@ -25,7 +25,7 @@ export default function MobileSidebar() {
         {/* Logo */}
         <div className="border-b border-white/10 px-6 py-8">
           <Link href="/dashboard">
-            <h1 className=" text-3xl font-bold text-purple-600">
+            <h1 className=" text-3xl font-bold bg-gradient-to-br from-orange-500 to-purple-600 bg-clip-text sm:text-4xl">
               Spendo
             </h1>
 
