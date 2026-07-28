@@ -35,9 +35,9 @@ export default function SummaryCards({ report }: { report: ReportData }) {
           >
             <CardContent className="flex items-center justify-between p-6">
               <div>
-                <p className="text-sm text-muted-foreground">{card.title}</p>
+                <p className="text-sm  text-black">{card.title}</p>
 
-                <h2 className="mt-2 text-2xl font-bold">
+                <h2 className="mt-2 text-2xl font-bold text-white">
                   Rs {card.value.toLocaleString()}
                 </h2>
               </div>

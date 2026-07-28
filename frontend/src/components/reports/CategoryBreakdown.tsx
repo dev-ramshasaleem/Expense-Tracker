@@ -39,7 +39,7 @@ export default function CategoryBreakdown({ report }: { report: ReportData }) {
               >
                 <div className="flex items-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-purple-300">
-                    <Icon className="h-5 w-5 text-black" />
+                    <Icon className="h-5 w-5 text-black  rounded-full bg-purple-300" />
                   </div>
 
                   <span className="font-medium">{item.category}</span>

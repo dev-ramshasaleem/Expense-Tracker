@@ -38,7 +38,7 @@ export default function Insights({ report }: { report: ReportData }) {
           return (
             <div
               key={item.title}
-              className="flex items-center justify-between rounded-2xl p-4 transition hover:bg-purple-200/20"
+              className="flex items-center justify-between text-black rounded-2xl p-4 transition hover:bg-purple-200/20"
             >
               <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-purple-300">
@@ -46,8 +46,8 @@ export default function Insights({ report }: { report: ReportData }) {
                 </div>
 
                 <div>
-                  <p className="text-sm text-muted-foreground">{item.title}</p>
-                  <p className="font-semibold">{item.value}</p>
+                  <p className="text-sm  text-black">{item.title}</p>
+                  <p className="font-semibold text-white">{item.value}</p>
                 </div>
               </div>
             </div>

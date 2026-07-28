@@ -120,8 +120,8 @@ export default function ReportsPage() {
           </p>
         </div>
 
-        <Button onClick={downloadReport}>
-          <Download className="mr-2 h-4 w-4 rounded-full bg-purple-300 text-black" />
+        <Button onClick={downloadReport} className="flex items-center gap-2 bg-purple-600 text-white hover:bg-purple-500">
+          <Download className="mr-2 h-4 w-4  text-white " />
           Download PDF
         </Button>
       </div>
