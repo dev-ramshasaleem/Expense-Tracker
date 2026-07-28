@@ -13,7 +13,7 @@ export default function MobileSidebar() {
   return (
     <Sheet>
       <SheetTrigger >
-        <Button className="rounded-xl p-2 transition hover:bg-white/10 lg:hidden">
+        <Button className="rounded-xl p-2 transition hover:bg-white/10 lg:hidden  bg-purple-600">
           <Menu className="h-6 w-6 text-white  bg-purple-600" />
         </Button>
       </SheetTrigger>
