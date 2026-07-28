@@ -114,11 +114,11 @@ export default function ReportsPage() {
     <div className="space-y-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white sm:text-3xl">Reports</h1>
+          <h1 className="text-xl font-bold text-white sm:text-3xl">View your financial summary and download it as a PDF.</h1>
 
-          <p className="mt-1 text-sm text-white/80 sm:text-base">
+          {/* <p className="mt-1 text-sm text-white/80 sm:text-base">
             View your financial summary and download it as a PDF.
-          </p>
+          </p> */}
         </div>
 
         <Button

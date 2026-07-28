@@ -6,7 +6,7 @@ export default function AddIncomePage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-white">Add Income</h1>
 
-        <p className="mt-2 text-gray-400">
+        <p className="mt-2 text-white">
           Record a new income source.
         </p>
       </div>

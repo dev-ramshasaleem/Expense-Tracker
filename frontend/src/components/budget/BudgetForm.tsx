@@ -55,7 +55,7 @@ export default function BudgetForm() {
               placeholder="Enter your monthly budget"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              className="rounded-xl"
+              className="rounded-xl mt-4"
             />
           </div>
 

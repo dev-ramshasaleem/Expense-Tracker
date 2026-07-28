@@ -7,8 +7,8 @@ export default function BudgetPage() {
   return (
     <div className="space-y-6 p-6">
       <div>
-        <h1 className="text-3xl font-bold">Budget</h1>
-        <p className="text-muted-foreground">
+        <h1 className="text-3xl font-bold text-white">Budget</h1>
+        <p className="text-white mt-2">
           Set and track your monthly budget.
         </p>
       </div>
