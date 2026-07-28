@@ -24,11 +24,11 @@ export default function MobileSidebar() {
         {/* Logo */}
         <div className="border-b border-white/10 px-6 py-8">
           <Link href="/dashboard">
-            <h1 className="bg-gradient-to-br from-orange-300 to-purple-600 bg-clip-text text-3xl font-bold text-transparent">
+            <h1 className=" text-3xl font-bold text-purple-600">
               Spendo
             </h1>
 
-            <p className="mt-1 text-sm text-gray-400">
+            <p className="mt-1 text-sm text-white">
               Smart Expense Tracker
             </p>
           </Link>
@@ -46,7 +46,7 @@ export default function MobileSidebar() {
           <p className="text-sm font-medium text-white">
             Track your finances
           </p>
-          <p className="mt-1 text-xs text-gray-400">
+          <p className="mt-1 text-xs text-gray-600">
             Stay organized and reach your savings goals.
           </p>
         </div>

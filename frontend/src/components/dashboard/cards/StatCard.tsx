@@ -37,7 +37,7 @@ export default function StatCard({
         </div>
 
         <div className="rounded-xl bg-blue-500/20 p-3">
-          <Icon className="h-6 w-6 text-cyan-300" />
+          <Icon className="h-6 w-6  bg-purple-300 text-black" />
         </div>
       </div>
     </div>

@@ -33,39 +33,42 @@ const actions = [
 
 export default function QuickActions() {
   return (
-    <Card className="rounded-3xl border shadow-sm border-white/10 bg-white/10">
-      <CardHeader>
-        <CardTitle className="text font-semibold text-white">
-          Quick Actions
-        </CardTitle>
-      </CardHeader>
+    <Card className="rounded-3xl border border-white/10 bg-white/10 shadow-sm">
+  <CardHeader>
+    <CardTitle className="text-lg font-semibold text-white">
+      Quick Actions
+    </CardTitle>
+  </CardHeader>
 
-      <CardContent>
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {actions.map((action) => {
-            const Icon = action.icon;
+  <CardContent>
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
+      {actions.map((action) => {
+        const Icon = action.icon;
 
-            return (
-              <Link
-                key={action.title}
-                href={action.href}
-                className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/10 p-5  hover:-translate-y-1 hover:border-purple-500 hover:shadow-md"
-              >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-purple-300 transition-colors group-hover:bg-purple-200">
-                  <Icon className="h-6 w-6 text-black transition-colors group-hover:text-purple-600" />
-                </div>
+        return (
+          <Link
+            key={action.title}
+            href={action.href}
+            className="group flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-purple-500 hover:shadow-lg"
+          >
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-purple-300 transition-colors group-hover:bg-purple-200 sm:h-12 sm:w-12">
+              <Icon className="h-5 w-5 text-black transition-colors group-hover:text-purple-600 sm:h-6 sm:w-6" />
+            </div>
 
-                <div>
-                  <h3 className="font-semibold text-black">{action.title}</h3>
-                  <p className="mt-1 text-sm text-black">
-                    {action.description}
-                  </p>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </CardContent>
-    </Card>
+            <div className="min-w-0">
+              <h3 className="truncate text-sm font-semibold text-black sm:text-base">
+                {action.title}
+              </h3>
+
+              <p className="mt-1 text-xs text-black/80 sm:text-sm">
+                {action.description}
+              </p>
+            </div>
+          </Link>
+        );
+      })}
+    </div>
+  </CardContent>
+</Card>
   );
 }
