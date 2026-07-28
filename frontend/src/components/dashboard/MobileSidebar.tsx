@@ -25,7 +25,7 @@ export default function MobileSidebar() {
         {/* Logo */}
         <div className="border-b border-white/10 px-6 py-8">
           <Link href="/dashboard">
-            <h1 className=" text-3xl font-bold bg-gradient-to-br from-orange-500 to-purple-600 bg-clip-text sm:text-4xl">
+            <h1 className=" text-3xl font-bold bg-gradient-to-br from-orange-500 to-purple-600 bg-clip-text text-transparent sm:text-4xl">
               Spendo
             </h1>
 
