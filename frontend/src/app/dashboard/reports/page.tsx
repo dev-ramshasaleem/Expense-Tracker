@@ -114,14 +114,14 @@ export default function ReportsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Reports</h1>
-          <p className="text-muted-foreground">
+          <h1 className="text-3xl font-bold text-white">Reports</h1>
+          <p className="text-muted-foreground text-white">
             View your financial summary and download it as a PDF.
           </p>
         </div>
 
         <Button onClick={downloadReport}>
-          <Download className="mr-2 h-4 w-4" />
+          <Download className="mr-2 h-4 w-4 rounded-full bg-purple-300 text-black" />
           Download PDF
         </Button>
       </div>
