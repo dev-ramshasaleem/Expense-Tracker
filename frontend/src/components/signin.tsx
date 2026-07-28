@@ -49,13 +49,12 @@ export default function SignIn() {
   return (
     <>
       <CardHeader className="px-0 text-center">
-        <div className="relative text-center">
-          <CardTitle className="text-3xl font-bold text-white">
-            Welcome Back{" "}
+        <div className="flex items-center justify-center gap-2 text-center">
+          <CardTitle className="text-2xl font-bold text-white sm:text-3xl">
+            Welcome Back
           </CardTitle>
-          <Sparkles className="absolute right-14  h-7 w-7 -translate-y-8 text-white" />
+          <Sparkles className="h-5 w-5 text-white sm:h-7 sm:w-7" />
         </div>
-
         <CardDescription className="text-white/80">
           Start tracking your expenses with SpendO.
         </CardDescription>
