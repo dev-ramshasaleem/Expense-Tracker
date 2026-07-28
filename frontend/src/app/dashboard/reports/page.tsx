@@ -112,16 +112,20 @@ export default function ReportsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Reports</h1>
-          <p className="text-muted-foreground text-white">
+          <h1 className="text-2xl font-bold text-white sm:text-3xl">Reports</h1>
+
+          <p className="mt-1 text-sm text-white/80 sm:text-base">
             View your financial summary and download it as a PDF.
           </p>
         </div>
 
-        <Button onClick={downloadReport} className="flex items-center gap-2 bg-purple-600 text-white hover:bg-purple-500">
-          <Download className="mr-2 h-4 w-4  text-white " />
+        <Button
+          onClick={downloadReport}
+          className="w-full bg-purple-600 text-white hover:bg-purple-500 sm:w-auto"
+        >
+          <Download className="mr-2 h-4 w-4" />
           Download PDF
         </Button>
       </div>
