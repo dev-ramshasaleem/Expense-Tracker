@@ -50,7 +50,6 @@ Spendo is a full-stack expense tracking application that helps users manage thei
 ### ⚙️ Settings
 - View profile
 - Update profile
-- Theme switcher
 - Logout
 
 ---
