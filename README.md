@@ -47,7 +47,6 @@ Spendo is a full-stack expense tracking application that helps users manage thei
 - Total transactions
 - Export report as PDF
 
-### ⚙️ Settings
 ---
 
 # 🛠 Tech Stack
